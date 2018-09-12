@@ -1,4 +1,4 @@
-package io.github.saneea;
+package io.github.saneea.citydistance;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

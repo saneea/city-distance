@@ -1,4 +1,4 @@
-package io.github.saneea;
+package io.github.saneea.citydistance;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;

@@ -1,4 +1,4 @@
-package io.github.saneea;
+package io.github.saneea.citydistance;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
