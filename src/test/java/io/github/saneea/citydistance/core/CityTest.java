@@ -12,8 +12,8 @@ public class CityTest {
 
 	@Test
 	public void noConnection() {
-		City a = f.getCity("A");
-		City b = f.getCity("B");
+		City a = f.getOrCreateCity("A");
+		City b = f.getOrCreateCity("B");
 
 		assertPaths("[]", a, b);
 		assertPaths("[]", b, a);
@@ -21,8 +21,8 @@ public class CityTest {
 
 	@Test
 	public void oneDirect() {
-		City a = f.getCity("A");
-		City b = f.getCity("B");
+		City a = f.getOrCreateCity("A");
+		City b = f.getOrCreateCity("B");
 
 		a.connect(10, b);
 
@@ -32,9 +32,9 @@ public class CityTest {
 
 	@Test
 	public void simpleJoin() {
-		City a = f.getCity("A");
-		City b = f.getCity("B");
-		City c = f.getCity("C");
+		City a = f.getOrCreateCity("A");
+		City b = f.getOrCreateCity("B");
+		City c = f.getOrCreateCity("C");
 
 		a.connect(10, b);
 		b.connect(2, c);
@@ -45,10 +45,10 @@ public class CityTest {
 
 	@Test
 	public void diamond() {
-		City a = f.getCity("A");
-		City b1 = f.getCity("B1");
-		City b2 = f.getCity("B2");
-		City c = f.getCity("C");
+		City a = f.getOrCreateCity("A");
+		City b1 = f.getOrCreateCity("B1");
+		City b2 = f.getOrCreateCity("B2");
+		City c = f.getOrCreateCity("C");
 
 		a.connect(1, b1);
 		a.connect(2, b2);
@@ -62,10 +62,10 @@ public class CityTest {
 
 	@Test
 	public void diamondWithDirect() {
-		City a = f.getCity("A");
-		City b1 = f.getCity("B1");
-		City b2 = f.getCity("B2");
-		City c = f.getCity("C");
+		City a = f.getOrCreateCity("A");
+		City b1 = f.getOrCreateCity("B1");
+		City b2 = f.getOrCreateCity("B2");
+		City c = f.getOrCreateCity("C");
 
 		a.connect(1, b1);
 		a.connect(2, b2);
@@ -81,10 +81,10 @@ public class CityTest {
 
 	@Test
 	public void diamondWithEdge() {
-		City a = f.getCity("A");
-		City b1 = f.getCity("B1");
-		City b2 = f.getCity("B2");
-		City c = f.getCity("C");
+		City a = f.getOrCreateCity("A");
+		City b1 = f.getOrCreateCity("B1");
+		City b2 = f.getOrCreateCity("B2");
+		City c = f.getOrCreateCity("C");
 
 		a.connect(1, b1);
 		a.connect(2, b2);
@@ -103,12 +103,12 @@ public class CityTest {
 	@Test
 	public void diamondWithEdgeHeadTail() {
 		// test cycles
-		City h = f.getCity("H");
-		City a = f.getCity("A");
-		City b1 = f.getCity("B1");
-		City b2 = f.getCity("B2");
-		City c = f.getCity("C");
-		City t = f.getCity("T");
+		City h = f.getOrCreateCity("H");
+		City a = f.getOrCreateCity("A");
+		City b1 = f.getOrCreateCity("B1");
+		City b2 = f.getOrCreateCity("B2");
+		City c = f.getOrCreateCity("C");
+		City t = f.getOrCreateCity("T");
 
 		a.connect(1, b1);
 		a.connect(2, b2);

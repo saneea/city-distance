@@ -1,10 +1,10 @@
 package io.github.saneea.citydistance.core;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Stream;
 
-public class City2CityPath implements Iterable<PathSegment> {
+public class City2CityPath {
 
 	private final List<PathSegment> segments = new ArrayList<>();
 
@@ -16,9 +16,8 @@ public class City2CityPath implements Iterable<PathSegment> {
 		segments.addAll(other.segments);
 	}
 
-	@Override
-	public Iterator<PathSegment> iterator() {
-		return segments.iterator();
+	public Stream<PathSegment> stream() {
+		return segments.stream();
 	}
 
 	@Override
