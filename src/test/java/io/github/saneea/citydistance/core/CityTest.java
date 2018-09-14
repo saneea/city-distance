@@ -20,7 +20,7 @@ public class CityTest {
 	}
 
 	@Test
-	public void oneDirect() {
+	public void oneDirect() throws Exception {
 		City a = f.getOrCreateCity("A");
 		City b = f.getOrCreateCity("B");
 
@@ -31,7 +31,7 @@ public class CityTest {
 	}
 
 	@Test
-	public void simpleJoin() {
+	public void simpleJoin() throws Exception {
 		City a = f.getOrCreateCity("A");
 		City b = f.getOrCreateCity("B");
 		City c = f.getOrCreateCity("C");
@@ -44,7 +44,7 @@ public class CityTest {
 	}
 
 	@Test
-	public void diamond() {
+	public void diamond() throws Exception {
 		City a = f.getOrCreateCity("A");
 		City b1 = f.getOrCreateCity("B1");
 		City b2 = f.getOrCreateCity("B2");
@@ -61,7 +61,7 @@ public class CityTest {
 	}
 
 	@Test
-	public void diamondWithDirect() {
+	public void diamondWithDirect() throws Exception {
 		City a = f.getOrCreateCity("A");
 		City b1 = f.getOrCreateCity("B1");
 		City b2 = f.getOrCreateCity("B2");
@@ -80,7 +80,7 @@ public class CityTest {
 	}
 
 	@Test
-	public void diamondWithEdge() {
+	public void diamondWithEdge() throws Exception {
 		City a = f.getOrCreateCity("A");
 		City b1 = f.getOrCreateCity("B1");
 		City b2 = f.getOrCreateCity("B2");
@@ -101,7 +101,7 @@ public class CityTest {
 	}
 
 	@Test
-	public void diamondWithEdgeHeadTail() {
+	public void diamondWithEdgeHeadTail() throws Exception {
 		// test cycles
 		City h = f.getOrCreateCity("H");
 		City a = f.getOrCreateCity("A");

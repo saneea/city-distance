@@ -8,6 +8,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import io.github.saneea.citydistance.api.ErrorCode;
+import io.github.saneea.citydistance.exceptions.CityDistanceException;
+
 public class City {
 
 	private final String name;
@@ -24,7 +27,10 @@ public class City {
 		return name;
 	}
 
-	public void connect(int distance, City city) {
+	public void connect(int distance, City city) throws CityDistanceException {
+		if (connections.containsKey(city)) {
+			throw new CityDistanceException(ErrorCode.REDEFINING_DISTANCE, name, city.name);
+		}
 		connections.put(city, distance);
 		city.connections.put(this, distance);
 	}

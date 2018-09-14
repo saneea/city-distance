@@ -7,25 +7,23 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import io.github.saneea.citydistance.api.ErrorCode;
-import io.github.saneea.citydistance.exceptions.CityNotFoundException;
+import io.github.saneea.citydistance.exceptions.CityDistanceException;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
 	public static class ErrorEntity {
 		public String message;
-		public Exception exception;
-		public ErrorCode internalCode;
+		public ErrorCode errorCode;
 	}
 
-	@ResponseStatus(HttpStatus.NOT_FOUND)
-	@ExceptionHandler(CityNotFoundException.class)
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ExceptionHandler(CityDistanceException.class)
 	@ResponseBody
-	public ErrorEntity handleCityNotFound(CityNotFoundException ex) {
+	public ErrorEntity handleCityNotFound(CityDistanceException ex) {
 		ErrorEntity err = new ErrorEntity();
 		err.message = ex.getMessage();
-		err.exception = ex;
-		err.internalCode = ex.getErrorCode();
+		err.errorCode = ex.getErrorCode();
 		return err;
 	}
 }

@@ -3,7 +3,8 @@ package io.github.saneea.citydistance.core;
 import java.util.HashMap;
 import java.util.Map;
 
-import io.github.saneea.citydistance.exceptions.CityNotFoundException;
+import io.github.saneea.citydistance.api.ErrorCode;
+import io.github.saneea.citydistance.exceptions.CityDistanceException;
 
 public class CityFactory {
 
@@ -18,10 +19,10 @@ public class CityFactory {
 		return city;
 	}
 
-	public City getCity(String cityName) throws CityNotFoundException {
+	public City getCity(String cityName) throws CityDistanceException {
 		City ret = cities.get(cityName);
 		if (ret == null) {
-			throw new CityNotFoundException(cityName);
+			throw new CityDistanceException(ErrorCode.CITY_NOT_FOUND, cityName);
 		}
 		return ret;
 	}

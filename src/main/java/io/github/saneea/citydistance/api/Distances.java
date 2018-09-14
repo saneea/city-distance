@@ -26,15 +26,15 @@ public interface Distances {
 	interface postDistance {
 
 		class Request {
-			int distance;
+			Integer distance;
 			String city1;
 			String city2;
 
-			public int getDistance() {
+			public Integer getDistance() {
 				return distance;
 			}
 
-			public void setDistance(int distance) {
+			public void setDistance(Integer distance) {
 				this.distance = distance;
 			}
 
