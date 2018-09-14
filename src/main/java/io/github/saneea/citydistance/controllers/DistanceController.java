@@ -16,6 +16,7 @@ import io.github.saneea.citydistance.api.Distances;
 import io.github.saneea.citydistance.beans.DistanceEngine;
 import io.github.saneea.citydistance.core.City;
 import io.github.saneea.citydistance.core.PathSegment;
+import io.github.saneea.citydistance.exceptions.CityNotFoundException;
 
 @RestController
 @RequestMapping(Distances.PATH)
@@ -35,7 +36,7 @@ public class DistanceController {
 	@RequestMapping(method = RequestMethod.GET, path = Distances.getDistance.PATH)
 	public Distances.getDistance.Response getDistance(//
 			@PathVariable("city1") String city1, //
-			@PathVariable("city2") String city2) {
+			@PathVariable("city2") String city2) throws CityNotFoundException {
 		List<City2CityPath> paths = gistanceEngine.getAllPaths(city1, city2)//
 				.stream()//
 				.map(pathInternal -> pathInternalToApi(city1, pathInternal))//

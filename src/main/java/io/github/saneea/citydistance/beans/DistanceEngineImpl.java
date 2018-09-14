@@ -7,6 +7,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 import io.github.saneea.citydistance.core.City;
 import io.github.saneea.citydistance.core.City2CityPath;
 import io.github.saneea.citydistance.core.CityFactory;
+import io.github.saneea.citydistance.exceptions.CityNotFoundException;
 
 public class DistanceEngineImpl implements DistanceEngine {
 
@@ -27,7 +28,7 @@ public class DistanceEngineImpl implements DistanceEngine {
 	}
 
 	@Override
-	public List<City2CityPath> getAllPaths(String cityName1, String cityName2) {
+	public List<City2CityPath> getAllPaths(String cityName1, String cityName2) throws CityNotFoundException {
 		rwLock.readLock().lock();
 		try {
 			City city1 = cityFactory.getCity(cityName1);
