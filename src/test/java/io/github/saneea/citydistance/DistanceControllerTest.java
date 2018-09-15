@@ -22,9 +22,21 @@ public class DistanceControllerTest {
 	@Autowired
 	private MockMvc mvc;
 
+	private static final String POST_A_TO_B = "{ \"city1\": \"A\", \"city2\": \"B\", \"distance\": 10 }";
+
+	private static final String GET_A_TO_B = "{ \"paths\": [ {\"finalDistance\": 10, \"cities\": [\"A\", \"B\" ] } ] }"
+			.replace(" ", "");
+
 	@Test
-	public void getHello() throws Exception {
-		mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
-				.andExpect(content().string(equalTo("Greetings from Spring Boot!")));
+	public void simpleTest() throws Exception {
+		mvc.perform(//
+				MockMvcRequestBuilders.post("/distances").contentType(MediaType.APPLICATION_JSON).content(POST_A_TO_B))//
+				.andExpect(status().isOk())//
+				.andExpect(content().string(equalTo("")));
+
+		mvc.perform(//
+				MockMvcRequestBuilders.get("/distances/A/B").accept(MediaType.APPLICATION_JSON))//
+				.andExpect(status().isOk())//
+				.andExpect(content().string(equalTo(GET_A_TO_B)));
 	}
 }
