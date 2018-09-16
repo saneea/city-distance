@@ -28,6 +28,10 @@ public class City {
 	}
 
 	public void connect(int distance, City city) throws CityDistanceException {
+		if (this == city) {
+			throw new CityDistanceException(ErrorCode.DEFINING_DISTANCE_TO_THE_SAME_CITY);
+		}
+
 		if (connections.containsKey(city)) {
 			throw new CityDistanceException(ErrorCode.REDEFINING_DISTANCE, name, city.name);
 		}

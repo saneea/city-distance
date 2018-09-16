@@ -108,6 +108,13 @@ public class DistanceControllerIT {
 				getForError("I", "L"));
 	}
 
+	@Test
+	public void pathToSameCityTest() throws Exception {
+		assertReflectionEquals(//
+				error(ErrorCode.DEFINING_DISTANCE_TO_THE_SAME_CITY, "Distance from city to itself can not be defined"), //
+				post("M", "M", 20));
+	}
+
 	private Response getForOk(String city1, String city2) {
 		return getFor(city1, city2, Response.class);
 	}
